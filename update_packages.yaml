@@ -13,7 +13,7 @@
           - tree
           - wget
           - curl
-          # or we can write in a single line ["vim", "tree", "wget", "curl"]
+          # or we can write on a single line ["vim", "tree", "wget", "curl"]
         state: latest
     - name: Create file
       file:
