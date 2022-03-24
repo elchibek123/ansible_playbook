@@ -6,3 +6,22 @@
       yum:
         name: '*'
         state: latest
+    - name: Install packages
+      yum:
+        name:
+          - vim
+          - tree
+          - wget
+          - curl
+          # or we can write in a single line ["vim", "tree", "wget", "curl"]
+        state: latest
+    - name: Create file
+      file:
+        path: /tmp/file1_ansible
+        state: touch
+    - name: Write in file
+      blockinfile:
+        path: /tmp/file1_ansible
+        block: |
+          This is line one
+          This is line two
