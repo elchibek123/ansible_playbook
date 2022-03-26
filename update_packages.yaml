@@ -12,7 +12,6 @@
           - vim
           - tree
           - wget
-          - curl
           # or we can write on a single line ["vim", "tree", "wget", "curl"]
         state: latest
     - name: Create an empty file
