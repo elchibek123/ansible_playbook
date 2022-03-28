@@ -1,0 +1,8 @@
+---
+- name: Copy index.html to /nginx/html
+  hosts: all
+  tasks: 
+    - name: Copy File
+      copy:
+        src: /root/git-repos/ansible_playbook/index.html
+        dest: /usr/share/nginx/html/index.html
