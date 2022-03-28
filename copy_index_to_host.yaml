@@ -1,0 +1,15 @@
+---
+- name: Copy Index
+  hosts: all
+  gather_facts: yes
+  tasks:
+    - name: Copy Index File to host 1
+      copy:
+        src: /root/git-repos/ansible_playbooks/index.html
+        dest: /usr/share/nginx/html/index.html
+      when: ansible_distribution == "CentOS"
+    - name: Copy Index File to host 2
+      copy:
+        src: /root/git-repos/ansible_playbooks/index.html
+        dest: /var/www/html/index.html
+      when: ansible_distribution == "Ubuntu"
