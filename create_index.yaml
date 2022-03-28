@@ -1,0 +1,28 @@
+---
+- name: Copy Index File
+  hosts: localhost
+  tasks:
+    - name: Create an empty file
+      file:
+        path: /root/git-repos/ansible_playbooks/index.html
+        state: touch
+    - name: Insert lines to a file
+      blockinfile:
+        path: /root/git-repos/ansible_playbooks/index.html
+        block: |
+          <!DOCTYPE html>
+          <html>
+          <head>
+          <title>My Website</title>
+          </head>
+          <body>
+          <h1>Welcome to my page!</h1>
+          <p>This my awesome website.</p>
+          <img src="https://www.pexels.com/photo/3183186/download/?search_query=technology tracking_id=27mp317lftr" alt="akumo-meeting" width="400">
+          </body>
+          </html>
+    - name: Remove markers
+      lineinfile :
+        path: /root/git-repos/ansible_playbooks/index.html
+        state: absent
+        regexp: '^#'
