@@ -1,8 +1,18 @@
 ---
-- name: Copy index.html to /nginx/html
+- name: Copy index.html
   hosts: all
+  gather_facts: yes
   tasks: 
-    - name: Copy File
+    - name: Copy File to CentOS
       copy:
-        src: /root/git-repos/ansible_playbook/index.html
+        src: /root/git_repos/ansible_playbooks/index.html
         dest: /usr/share/nginx/html/index.html
+        owner: nginx
+        group: nginx
+        mode: '664'
+      when: ansible_distribution == "CentOS"
+    - name: Copy File to Ubuntu
+      copy:
+        src: /root/git_repos/ansible_playbooks/index.html
+        dest: /usr/share/nginx/html/index.html
+      when: ansible_distribution == "Ubuntu"
