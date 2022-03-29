@@ -15,4 +15,7 @@
       copy:
         src: /root/git_repos/ansible_playbooks/index.html
         dest: /usr/share/nginx/html/index.html
+        owner: www-data
+        group: www-data
+        mode: '664'
       when: ansible_distribution == "Ubuntu"
